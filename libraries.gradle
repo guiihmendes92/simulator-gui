@@ -1,0 +1,17 @@
+ext {
+    jposVersion = '2.1.2'
+    jposeeVersion = '2.2.5'
+
+    libraries = [
+            junit            : 'junit:junit:4.10',
+            jpos             : "org.jpos:jpos:${jposVersion}",
+            jposee_core      : "org.jpos.ee:jposee-core:${jposeeVersion}",
+            jposee_txn       : "org.jpos.ee:jposee-txn:${jposeeVersion}",
+            jposee_logback   : "org.jpos.ee:jposee-logback:${jposeeVersion}",
+            jposee_db_support: "org.jpos.ee:jposee-dbsupport:${jposeeVersion}",
+            jposee_freemarker: "org.jpos.ee:jposee-freemarker-decorator:${jposeeVersion}",
+            gson             : "com.google.code.gson:gson:2.8.5",
+            lombok           : "org.projectlombok:lombok:1.18.2",
+            ojbc6            : "com.oracle:ojdbc6:11.2.0.3"
+    ]
+}

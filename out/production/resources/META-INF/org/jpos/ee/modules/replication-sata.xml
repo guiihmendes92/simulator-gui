@@ -1,0 +1,14 @@
+<module name="replication-sata">
+    <mappings>
+        <mapping class="br.com.cabal.replication_sata.entity.AutorizAdquirente"/>
+        <mapping class="br.com.cabal.replication_sata.entity.LogParticipante"/>
+        <mapping class="br.com.cabal.replication_sata.entity.LogErroReplicacao"/>
+        <mapping class="br.com.cabal.replication_sata.entity.MonitorAdquirente"/>
+        <mapping class="br.com.cabal.replication_sata.entity.MonitorBandeira"/>
+        <mapping class="br.com.cabal.replication_sata.entity.MonitorComercio"/>
+        <mapping class="br.com.cabal.replication_sata.entity.MonitoramentoFraude"/>
+        <mapping class="br.com.cabal.replication_sata.entity.CodRespMonitoramentoFraude"/>
+    </mappings>
+</module>
+
+

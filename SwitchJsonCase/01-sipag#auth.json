@@ -1,0 +1,21 @@
+{
+  "card": {
+    "pan": "6042202012547896",
+    "password": "1234",
+    "service-code": "601"
+  },
+  "authorization": {
+    "0": "0800",
+    "2": "PAN",
+    "7": "GMT_DATETIME",
+    "12": "LOCAL_TIME",
+    "13": "LOCAL_DATE"
+  },
+  "undo-authorization": {
+    "0": "0800",
+    "2": "PAN",
+    "7": "GMT_DATETIME",
+    "12": "LOCAL_TIME",
+    "13": "LOCAL_DATE"
+  }
+}

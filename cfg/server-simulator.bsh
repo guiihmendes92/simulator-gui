@@ -1,0 +1,11 @@
+message.setResponseMTI ();
+
+Random random = new Random (System.currentTimeMillis());
+
+message.set (38, Integer.toString(Math.abs(random.nextInt()) % 1000000));
+message.set (39, "00");
+
+message.unset(new int[] { 52, 55, 22, 14, 43, 60, 61, 18, 23, 49});
+
+source.send (message);
+

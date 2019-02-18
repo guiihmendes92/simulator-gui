@@ -1,0 +1,203 @@
+<?xml version='1.0'?>
+<!DOCTYPE SYSTEM [
+        ]>
+
+<txgmgr name="txnmgr-main"
+        realm="txnmgr-main"
+        class="org.jpos.transaction.TransactionManager"
+        logger="${logger_debug}"
+        xmlns="">
+
+    <property name="debug" value="true"/>
+    <property name="queue" value="${txnmgr_main}"/>
+    <property name="sessions" value="4"/>
+    <property name="max-sessions" value="40"/>
+    <property name="debug-context" value="true"/>
+
+    <participant class="br.com.gam.simulator.participant.create_case.CreateCase"
+                 logger="${logger_q2}">
+
+    </participant>
+
+
+    <participant class="br.com.gam.simulator.participant.GoToGroups"
+                 logger="${logger_q2}">
+
+        <property name="groups" value="${group_next_execution_case}"/>
+
+    </participant>
+
+    <group name="${group_authorization}">
+
+        <participant class="br.com.gam.simulator.participant.create_iso_message.ParseJsonToIsoMessage"
+                     logger="${logger_q2}">
+
+            <property name="json-type" value="${group_authorization}"/>
+
+        </participant>
+
+        <participant class="br.com.gam.simulator.participant.QueryHost"
+                     logger="${logger_q2}">
+
+            <property name="destination" value="CABAL_ADQ_CABAL"/>
+            <property name="request" value="${group_authorization}"/>
+
+        </participant>
+
+        <participant class="br.com.gam.simulator.participant.GoToGroups"
+                     logger="${logger_q2}">
+
+            <property name="groups" value="${group_next_execution_case}"/>
+
+        </participant>
+
+    </group>
+
+    <group name="${group_cancellation}">
+
+        <participant class="br.com.gam.simulator.participant.create_iso_message.ParseJsonToIsoMessage"
+                     logger="${logger_q2}">
+
+            <property name="json-type" value="${group_cancellation}"/>
+
+        </participant>
+
+        <participant class="br.com.gam.simulator.participant.QueryHost"
+                     logger="${logger_q2}">
+
+            <property name="destination" value="CABAL_ADQ_CABAL"/>
+            <property name="request" value="${group_cancellation}"/>
+
+        </participant>
+
+        <participant class="br.com.gam.simulator.participant.GoToGroups"
+                     logger="${logger_q2}">
+
+            <property name="groups" value="${group_next_execution_case}"/>
+
+        </participant>
+
+    </group>
+
+    <group name="${group_confirm_authorization}">
+
+        <participant class="br.com.gam.simulator.participant.create_iso_message.ParseJsonToIsoMessage"
+                     logger="${logger_q2}">
+
+            <property name="json-type" value="${group_confirm_authorization}"/>
+
+        </participant>
+
+        <participant class="br.com.gam.simulator.participant.QueryHost"
+                     logger="${logger_q2}">
+
+            <property name="destination" value="CABAL_ADQ_CABAL"/>
+            <property name="request" value="${group_confirm_authorization}"/>
+
+        </participant>
+
+        <participant class="br.com.gam.simulator.participant.GoToGroups"
+                     logger="${logger_q2}">
+
+            <property name="groups" value="${group_next_execution_case}"/>
+
+        </participant>
+
+    </group>
+
+    <group name="${group_confirm_cancellation}">
+
+        <participant class="br.com.gam.simulator.participant.create_iso_message.ParseJsonToIsoMessage"
+                     logger="${logger_q2}">
+
+            <property name="json-type" value="${group_confirm_cancellation}"/>
+
+        </participant>
+
+        <participant class="br.com.gam.simulator.participant.QueryHost"
+                     logger="${logger_q2}">
+
+            <property name="destination" value="CABAL_ADQ_CABAL"/>
+            <property name="request" value="${group_confirm_cancellation}"/>
+
+        </participant>
+
+        <participant class="br.com.gam.simulator.participant.GoToGroups"
+                     logger="${logger_q2}">
+
+            <property name="groups" value="${group_next_execution_case}"/>
+
+        </participant>
+
+    </group>
+
+    <group name="${group_undo_authorization}">
+
+        <participant class="br.com.gam.simulator.participant.create_iso_message.ParseJsonToIsoMessage"
+                     logger="${logger_q2}">
+
+            <property name="json-type" value="${group_undo_authorization}"/>
+
+        </participant>
+
+        <participant class="br.com.gam.simulator.participant.QueryHost"
+                     logger="${logger_q2}">
+
+            <property name="destination" value="CABAL_ADQ_CABAL"/>
+            <property name="request" value="${group_undo_authorization}"/>
+
+        </participant>
+
+        <participant class="br.com.gam.simulator.participant.GoToGroups"
+                     logger="${logger_q2}">
+
+            <property name="groups" value="${group_next_execution_case}"/>
+
+        </participant>
+
+    </group>
+
+    <group name="${group_undo_cancellation}">
+
+        <participant class="br.com.gam.simulator.participant.create_iso_message.ParseJsonToIsoMessage"
+                     logger="${logger_q2}">
+
+            <property name="json-type" value="${group_undo_cancellation}"/>
+
+        </participant>
+
+        <participant class="br.com.gam.simulator.participant.QueryHost"
+                     logger="${logger_q2}">
+
+            <property name="destination" value="CABAL_ADQ_CABAL"/>
+            <property name="request" value="${group_undo_cancellation}"/>
+
+        </participant>
+
+        <participant class="br.com.gam.simulator.participant.GoToGroups"
+                     logger="${logger_q2}">
+
+            <property name="groups" value="${group_next_execution_case}"/>
+
+        </participant>
+
+    </group>
+
+    <group name="${group_next_execution_case}">
+
+        <participant class="br.com.gam.simulator.participant.NextExecutionCase"
+                     logger="${logger_q2}">
+
+            <property name="${group_cancellation}" value="${group_cancellation}"/>
+            <property name="${group_authorization}" value="${group_authorization}"/>
+            <property name="${group_undo_cancellation}" value="${group_undo_cancellation}"/>
+            <property name="${group_undo_authorization}" value="${group_undo_authorization}"/>
+            <property name="${group_confirm_cancellation}" value="${group_confirm_cancellation}"/>
+            <property name="${group_confirm_authorization}" value="${group_confirm_authorization}"/>
+
+        </participant>
+
+    </group>
+
+
+</txgmgr>

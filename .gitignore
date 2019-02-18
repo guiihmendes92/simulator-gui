@@ -1,0 +1,16 @@
+build
+*.iws
+*.iml
+*.ipr
+
+# Arquivos de configuracao do eclipse
+.project
+.classpath
+*.ear
+*.war
+*.idea
+
+# Arquivos binarios
+*.class
+# Outros
+*.settings

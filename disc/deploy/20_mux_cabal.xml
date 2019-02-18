@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<mux class="org.jpos.q2.iso.QMUX" logger="Q2" name="CABAL_ADQ_CABAL">
+    <ready>channel-cabal.ready</ready>
+    <in>cabalbr-receive</in>
+    <out>cabalbr-send</out>
+</mux>
+

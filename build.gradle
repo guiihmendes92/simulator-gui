@@ -1,0 +1,31 @@
+apply from: 'libraries.gradle'
+apply plugin: 'java'
+
+group = 'br.com.gam.simulator'
+version = '1.0.0'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+[compileJava, compileTestJava, javadoc]*.options*.encoding = 'ISO_8859_1'
+jar.baseName = "${project.name}"
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+    maven { url 'http://jpos.org/maven' }
+    maven { url 'http://download.oracle.com/maven' }
+    jcenter()
+}
+
+dependencies {
+    compileOnly libraries.lombok
+    compile libraries.jpos
+    compile libraries.jposee_freemarker
+    compile libraries.gson
+    compile libraries.jposee_txn
+    compile libraries.jposee_db_support
+    
+    // https://mvnrepository.com/artifact/com.jgoodies/jgoodies-forms
+    compile group: 'com.jgoodies', name: 'jgoodies-forms', version: '1.9.0'
+
+}

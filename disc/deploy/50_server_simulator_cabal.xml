@@ -1,0 +1,22 @@
+<?xml version="1.0" ?>
+<server class="org.jpos.q2.iso.QServer"
+        logger="Q2"
+        name="server-simulator-cabal"
+        realm="server-simulator-cabal">
+
+    <attr name="port" type="java.lang.Integer">${jpos_channel_cabal_port}</attr>
+
+    <channel class="org.jpos.iso.channel.NACChannel"
+             name="server-simulator"
+             realm="server-simulator"
+             logger="Q2" packager="org.jpos.iso.packager.GenericPackager">
+
+        <property name="packager-config" value="cfg/cabal_iso87ascii.xml"/>
+        <property name="timeout" value="360000"/>
+    </channel>
+
+    <request-listener class="org.jpos.bsh.BSHRequestListener" logger="Q2">
+        <property name="source" value="cfg/server-simulator-cabal.bsh"/>
+    </request-listener>
+</server>
+

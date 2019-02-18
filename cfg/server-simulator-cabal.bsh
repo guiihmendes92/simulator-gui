@@ -1,0 +1,27 @@
+import br.com.cabal.sata_util.tlv.offset2.TLVMsgOffSet2;
+
+message.setResponseMTI ();
+
+Random random = new Random (System.currentTimeMillis());
+
+message.set (38, Integer.toString(Math.abs(random.nextInt()) % 1000000));
+message.set (39, "00");
+
+if (message.hasField(48)) {
+
+TLVMsgOffSet2 tlvMsgOffSet2 = new TLVMsgOffSet2(message.getBytes(48));
+
+if (("102".equals(tlvMsgOffSet2.get("01")) || "103".equals(tlvMsgOffSet2.get("01")) && message.hasField(112))){
+    message.set(112, "002072KKFTTTTTTTRRRRRRRSSSSSSSPPPPPPPEEEEEEEBBBBBBBBAAMMDDNNJJJJJAAAAAAVVVVVVV");
+}
+
+if ("060".equals(tlvMsgOffSet2.get("01"))){
+    message.set (112, "014012000000008000");
+}
+
+}
+
+message.unset(new int[] { 52, 55, 22, 14, 60, 61, 18, 23, 49});
+
+source.send (message);
+

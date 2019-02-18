@@ -1,0 +1,27 @@
+<?xml version="1.0" ?>
+<channel-adaptor name="channel-cabal"
+                 class="org.jpos.q2.iso.ChannelAdaptor"
+                 realm="channel-cabal"
+                 logger="Q2">
+
+    <channel class="org.jpos.iso.channel.NACChannel"
+             name="channel-cabal"
+             realm="channel-cabal"
+             logger="Q2"
+             packager="org.jpos.iso.packager.GenericPackager">
+
+        <property name="host" value="${jpos_channel_cabal_host}"/>
+        <property name="port" value="${jpos_channel_cabal_port}"/>
+
+        <property name="timeout" value="180000"/>
+        <property name="connect-timeout" value="1000"/>
+
+        <property name="packager-config" value="cfg/cabal_iso87ascii.xml"/>
+
+    </channel>
+
+    <in>cabalbr-send</in>
+    <out>cabalbr-receive</out>
+    <reconnect-delay>1000</reconnect-delay>
+
+</channel-adaptor>

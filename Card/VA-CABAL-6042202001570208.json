@@ -1,0 +1,18 @@
+{
+  "Cartao": "6042202001570208",
+  "Trilha1": "B6042202001570208^                          ^21066267260000690000",
+  "Trilha2": "6042202001570208=21066267260000690000",
+  "Senha": "9099",
+  "Cvv1": "726",
+  "Cvv2": "",
+  "IdentificacaoPositiva": "",
+  "Bin": "604220",
+  "BinEstendido": "60422020",
+  "DataDeVencimento": "2106",
+  "NomePortador": "",
+  "ServiceCode": "626",
+  "DadosDiscricionario": "0000690000",
+  "PSN": "00",
+  "AID": "CABAL_ALIMENTACAO"
+  //  "AID": "MASTER_CREDITO"
+}
